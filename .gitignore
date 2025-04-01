@@ -37,3 +37,10 @@ ENV/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# application
+sys.config
+
+# Logs
+logs/
+*.log
