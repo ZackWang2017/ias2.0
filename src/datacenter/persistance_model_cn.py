@@ -464,3 +464,5 @@ if __name__ == '__main__' :
     # init_all_stock()3563
     # init_one_stock_fi_data(stock_code="300272",year_list=year_list)
 
+    update_all_stock()
+

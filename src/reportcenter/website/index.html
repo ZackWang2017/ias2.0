@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票分析系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="brand">
+                <img src="images/logo.jpeg" alt="IAS Logo" class="brand-logo">
+                <span class="brand-name">Investment Analysis System <span class="brand-version">2.0</span></span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="user-menu">
+                <button id="userMenuBtn" class="user-menu-btn">
+                    <img src="images/user-avatar.png" alt="User" class="user-avatar">
+                    <span class="user-menu-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu">
+                    <button id="loginBtn" class="menu-item">登录/注册</button>
+                    <a href="portfolio.html" class="menu-item">持仓管理</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 登录模态框 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>登录</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">登录</button>
+                </form>
+                <p class="switch-form">
+                    还没有账号？<a href="#" id="switchToRegister">立即注册</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>注册</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="newUsername">用户名</label>
+                        <input type="text" id="newUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">密码</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">确认密码</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="submit-btn">注册</button>
+                </form>
+                <p class="switch-form">
+                    已有账号？<a href="#" id="switchToLogin">立即登录</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 原有的内容容器 -->
+    <div class="container">
+        <!-- 左侧分析选项 -->
+        <div class="left-panel">
+            <div class="search-box">
+                <div class="search-input-group">
+                    <input type="text" id="stockSearch" placeholder="输入股票代码或名称">
+                    <button id="searchBtn" class="search-btn">查找</button>
+                </div>
+                <div id="searchResult" class="search-result">
+                    <!-- Results will be added dynamically -->
+                    <div class="stock-info-card">
+                        <div class="stock-basic-info">
+                            <h4>浦发银行 (600000)</h4>
+                            <span class="exchange-tag">上交所</span>
+                        </div>
+                        <div class="data-source-info">
+                            <div class="source-item">
+                                <span class="source-label">财务数据来源:</span>
+                                <span class="source-value">新浪财经</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-label">最新更新时间:</span>
+                                <span class="source-value">2025-04-02</span>
+                            </div>
+                            <div class="source-item">
+                                <span class="source-label">数据覆盖范围:</span>
+                                <span class="source-value">2015-2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="analysis-options">
+                <button id="start-analyze" class="generate-btn">开始执行分析步骤</button>
+                <div class="analysis-timeline">
+                    <div class="timeline-item" data-step="1">
+                        <div class="timeline-node">
+                            <svg class="node-spinner" viewBox="0 0 24 24">
+                                <circle class="node-circle" cx="12" cy="12" r="10" />
+                                <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                            </svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>TangMetrix分析</h4>
+                            <p>分析公司核心财务指标</p>
+                            <div class="sub-timeline">
+                                <div class="sub-timeline-item">
+                                    <div class="timeline-node">
+                                        <svg class="node-spinner" viewBox="0 0 24 24">
+                                            <circle class="node-circle" cx="12" cy="12" r="8" />
+                                            <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <p>获取财务数据</p>
+                                    </div>
+                                </div>
+                                <div class="sub-timeline-item">
+                                    <div class="timeline-node">
+                                        <svg class="node-spinner" viewBox="0 0 24 24">
+                                            <circle class="node-circle" cx="12" cy="12" r="8" />
+                                            <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <p>计算核心指标</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-step="2">
+                        <div class="timeline-node">
+                            <svg class="node-spinner" viewBox="0 0 24 24">
+                                <circle class="node-circle" cx="12" cy="12" r="10" />
+                                <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                            </svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>财务分析</h4>
+                            <p>详细财务报表分析</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-step="3">
+                        <div class="timeline-node">
+                            <svg class="node-spinner" viewBox="0 0 24 24">
+                                <circle class="node-circle" cx="12" cy="12" r="10" />
+                                <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                            </svg>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>技术分析</h4>
+                            <p>股价走势技术指标分析</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧分析记录 -->
+        <div class="right-panel">
+            <div class="search-history">
+                <h3>查询记录</h3>
+                <div class="history-nav">
+                    <button class="nav-btn prev" id="prevHistory">◀</button>
+                    <div class="history-chips" id="historyChips">
+                        <span class="history-chip">浦发银行(600000)</span>
+                        <span class="history-chip">平安银行(000001)</span>
+                        <span class="history-chip">招商银行(600036)</span>
+                        <span class="history-chip">建设银行(601939)</span>
+                        <!-- More chips will be added dynamically -->
+                    </div>
+                    <button class="nav-btn next" id="nextHistory">▶</button>
+                </div>
+            </div>
+            <div class="analysis-content">
+                <div id="analysisContent" class="content-area">
+                    <!-- Analysis content will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
+
+
+
+
+

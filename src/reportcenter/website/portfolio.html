@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>持仓管理 - 股票分析系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="brand">
+                <img src="images/logo.jpeg" alt="IAS Logo" class="brand-logo">
+                <span class="brand-name">Portfolio Management<span class="brand-version"></span></span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="user-menu">
+                <button id="userMenuBtn" class="user-menu-btn">
+                    <img src="images/user-avatar.png" alt="User" class="user-avatar">
+                    <span class="user-menu-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="menu-item">返回首页</a>
+                    <button id="logoutBtn" class="menu-item">退出登录</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="portfolio-container">
+        <!-- 左侧持仓列表 -->
+        <div class="portfolio-list">
+            <div class="portfolio-header">
+                <h2>持仓列表</h2>
+                <button id="addPosition" class="add-btn">添加持仓</button>
+            </div>
+            <div class="portfolio-items">
+                <!-- 持仓项目将通过JavaScript动态添加 -->
+                <div class="portfolio-item">
+                    <div class="stock-basic">
+                        <div class="stock-name">浦发银行(600000)</div>
+                        <div class="stock-price">
+                            <span class="current-price">10.25</span>
+                            <span class="price-change up">+2.31%</span>
+                        </div>
+                    </div>
+                    <div class="position-info">
+                        <div class="shares">持仓: 1000股</div>
+                        <div class="market-value">市值: 10250元</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧股票详情 -->
+        <div class="stock-detail">
+            <div class="detail-header">
+                <h2>股票详情</h2>
+            </div>
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>基本信息</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">股票代码</span>
+                            <span class="value">600000</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">股票名称</span>
+                            <span class="value">浦发银行</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">当前价格</span>
+                            <span class="value">10.25</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">成本价格</span>
+                            <span class="value">9.88</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>持仓信息</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">持仓数量</span>
+                            <span class="value">1000股</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">持仓市值</span>
+                            <span class="value">10250元</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">浮动盈亏</span>
+                            <span class="value profit">+370元</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">盈亏比例</span>
+                            <span class="value profit">+3.74%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
