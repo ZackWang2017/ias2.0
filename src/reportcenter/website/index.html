@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>股票分析系统</title>
+    <title>投资分析系统</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/modal.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="css/markdown.css">
 </head>
 <body>
     <!-- 导航栏 -->
@@ -124,60 +126,21 @@
                 <button id="start-analyze" class="generate-btn">开始执行分析步骤</button>
                 <div class="analysis-timeline">
                     <div class="timeline-item" data-step="1">
-                        <div class="timeline-node">
-                            <svg class="node-spinner" viewBox="0 0 24 24">
-                                <circle class="node-circle" cx="12" cy="12" r="10" />
-                                <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                        </div>
+                        <div class="timeline-node"></div>
                         <div class="timeline-content">
-                            <h4>TangMetrix分析</h4>
-                            <p>分析公司核心财务指标</p>
-                            <div class="sub-timeline">
-                                <div class="sub-timeline-item">
-                                    <div class="timeline-node">
-                                        <svg class="node-spinner" viewBox="0 0 24 24">
-                                            <circle class="node-circle" cx="12" cy="12" r="8" />
-                                            <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="timeline-content">
-                                        <p>获取财务数据</p>
-                                    </div>
-                                </div>
-                                <div class="sub-timeline-item">
-                                    <div class="timeline-node">
-                                        <svg class="node-spinner" viewBox="0 0 24 24">
-                                            <circle class="node-circle" cx="12" cy="12" r="8" />
-                                            <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="timeline-content">
-                                        <p>计算核心指标</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <h4>TangMetrix计算</h4>
+                            <p>分析公司核心财务指标<span class="loading-dots">...</span></p>
                         </div>
                     </div>
                     <div class="timeline-item" data-step="2">
-                        <div class="timeline-node">
-                            <svg class="node-spinner" viewBox="0 0 24 24">
-                                <circle class="node-circle" cx="12" cy="12" r="10" />
-                                <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                        </div>
+                        <div class="timeline-node"></div>
                         <div class="timeline-content">
-                            <h4>财务分析</h4>
+                            <h4>财务质量分析</h4>
                             <p>详细财务报表分析</p>
                         </div>
                     </div>
                     <div class="timeline-item" data-step="3">
-                        <div class="timeline-node">
-                            <svg class="node-spinner" viewBox="0 0 24 24">
-                                <circle class="node-circle" cx="12" cy="12" r="10" />
-                                <path class="node-check" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                            </svg>
-                        </div>
+                        <div class="timeline-node"></div>
                         <div class="timeline-content">
                             <h4>技术分析</h4>
                             <p>股价走势技术指标分析</p>
@@ -210,6 +173,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // 模拟数据加载完成
+        function loadData() {
+            return new Promise(resolve => {
+                setTimeout(resolve, 3000); // 3秒模拟加载时间
+            });
+        }
+
+        // 初始化加载状态
+        const loader = document.querySelector('.timeline-node');
+        const loading_dots = document.querySelector('.loading-dots');
+        
+        // 启动加载
+        loadData().then(() => {
+            loader.classList.add('loaded');
+            
+            loading_dots.classList.add('loaded');
+        });
+    </script>
     
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>

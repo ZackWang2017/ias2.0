@@ -197,6 +197,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('start-analyze').addEventListener('click', async function() {
+        const stockInfo = document.querySelector('.stock-basic-info h4').textContent;
+        await runAnalysis();
+        loadAnalysisContent(stockInfo);
+    });
+
+    async function runAnalysis() {
+        // Your existing analysis code
+    }
+
+    document.getElementById('start-analyze').addEventListener('click', async function() {
         // Disable the button
         this.disabled = true;
         this.classList.add('disabled');
@@ -305,6 +315,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadAnalysisContent(stockInfo) {
     const contentArea = document.getElementById('analysisContent');
-    // Here you would typically load the actual analysis content
-    contentArea.innerHTML = `<div class="loading">Loading analysis for ${stockInfo}...</div>`;
+    contentArea.className = 'content-area markdown-body';
+    
+    // Example markdown content - replace with actual analysis data
+    const markdownContent = `
+# ${stockInfo} 分析报告
+
+## TangMetrix 分析结果
+
+### 核心指标得分
+- ROE: **15.2%** ⭐⭐⭐⭐
+- 毛利率: **42.8%** ⭐⭐⭐
+- 营收增速: **23.5%** ⭐⭐⭐⭐⭐
+
+### 财务质量评估
+| 指标 | 数值 | 行业均值 | 评级 |
+|------|------|----------|------|
+| 现金流质量 | 0.95 | 0.82 | 优秀 |
+| 资产周转率 | 1.2 | 0.9 | 良好 |
+| 负债率 | 65% | 70% | 适中 |
+
+## 技术分析
+\`\`\`
+MA(20) = 34.56
+MA(60) = 32.12
+MACD = 正金叉
+RSI = 58.3
+\`\`\`
+
+> 综合建议：基本面良好，技术面呈现上升趋势，可以考虑逢低买入。
+`;
+
+    // Convert markdown to HTML
+    contentArea.innerHTML = marked(markdownContent);
 }
