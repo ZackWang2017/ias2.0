@@ -40,6 +40,8 @@ ENV/
 
 # application
 sys.config
+sys.conf
+setupscripts.sh
 
 # Logs
 logs/

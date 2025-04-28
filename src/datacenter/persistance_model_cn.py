@@ -7,7 +7,7 @@ import pandas as pd
 import utils.db as db
 import json
 
-from datacenter.discovery_model_cn import get_all_stockcode, get_remote_balancesheet_data, get_remote_cashflow_data, get_remote_porfitstatement_data
+from datacenter.remote_data_model_cn import get_all_stockcode, get_remote_balancesheet_data, get_remote_cashflow_data, get_remote_porfitstatement_data
 
 __dataformat__ = "google"
 

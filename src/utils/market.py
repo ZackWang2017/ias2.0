@@ -6,9 +6,9 @@ from enum import Enum
 import re
 
 class StockMarket(Enum):
-    CHINA_SH = "上海证券交易所"
-    CHINA_SZ = "深圳证券交易所"
-    HONG_KONG = "香港联合交易所"
+    CHINA_SH = "SH"
+    CHINA_SZ = "SZ"
+    HONG_KONG = "HK"
     USA = "美国证券交易所"
     JAPAN = "日本证券交易所"
     UNKNOWN = "未知市场"

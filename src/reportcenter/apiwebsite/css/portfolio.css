@@ -1,0 +1,146 @@
+.portfolio-container {
+    display: flex;
+    padding: 24px;
+    gap: 24px;
+    height: calc(100vh - 64px);
+}
+
+.portfolio-list {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3);
+    padding: 24px;
+}
+
+.stock-detail {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3);
+    padding: 24px;
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.portfolio-header h2 {
+    font-size: 18px;
+    color: #202124;
+}
+
+.add-btn {
+    padding: 8px 16px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.portfolio-items {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.portfolio-item {
+    padding: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.portfolio-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3);
+}
+
+.stock-basic {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.stock-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #202124;
+}
+
+.stock-price {
+    text-align: right;
+}
+
+.current-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #202124;
+    margin-right: 8px;
+}
+
+.price-change {
+    font-size: 14px;
+}
+
+.price-change.up {
+    color: #34a853;
+}
+
+.price-change.down {
+    color: #ea4335;
+}
+
+.position-info {
+    display: flex;
+    justify-content: space-between;
+    color: #5f6368;
+    font-size: 14px;
+}
+
+.detail-section {
+    margin-bottom: 24px;
+}
+
+.detail-section h3 {
+    font-size: 16px;
+    color: #202124;
+    margin-bottom: 16px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item .label {
+    color: #5f6368;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.info-item .value {
+    color: #202124;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info-item .value.profit {
+    color: #34a853;
+}
+
+.info-item .value.loss {
+    color: #ea4335;
+}

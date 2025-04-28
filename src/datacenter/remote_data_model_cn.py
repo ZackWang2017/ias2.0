@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from requests_html import HTMLSession
 from loguru import logger
 
-from utils.finance_idx import FinanceNotesIdx, ProfitStatementIdx
+from utils.finance_item_cn import FinanceNotesIdx, ProfitStatementIdx
 
 __dataformat__ = "google"
 
